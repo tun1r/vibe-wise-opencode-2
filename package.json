@@ -1,0 +1,28 @@
+{
+  "name": "vibe-wise-opencode-2",
+  "version": "0.1.0",
+  "description": "VibeWise learning-first development for OpenCode V2",
+  "type": "module",
+  "exports": "./index.js",
+  "files": ["index.js", "src", "guides", "LICENSE", "NOTICE.md", "README.md"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "typecheck": "tsc --noEmit",
+    "test:package": "node scripts/package-smoke.js"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.0.27"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "~5.8.2"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tun1r/vibe-wise-opencode-2.git"
+  },
+  "bugs": { "url": "https://github.com/tun1r/vibe-wise-opencode-2/issues" },
+  "homepage": "https://github.com/tun1r/vibe-wise-opencode-2#readme"
+}
