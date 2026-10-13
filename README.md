@@ -163,6 +163,34 @@ See [TESTING.md](TESTING.md) for coverage and verification limits, and
 Node.js 22 and 24. Tagging `v<package version>` builds a GitHub release tarball;
 the project does not automatically publish to npm.
 
+## Automated maintenance
+
+A GitHub Actions watcher runs daily at **03:17 UTC** (08:47 India time), even if
+your laptop is off. It checks the original VibeWise main branch and stable OpenCode
+V2 CLI releases, then opens or updates review issues assigned to `tun1r`.
+Duplicate daily alerts are suppressed. Closing an issue acknowledges that exact
+upstream tip; a newer revision reopens it.
+
+Dependabot separately checks `@opencode/plugin` on its daily schedule (weekdays)
+and opens dependency-update PRs. Each PR runs our existing CI tests, type checks,
+and package smoke checks. Major-version upgrades are excluded. GitHub may delay
+checks or apply a cooldown before creating a PR.
+
+**No automatic merges or source porting.** Upstream teaching changes need a reviewed
+OpenCode adaptation. Neither job upgrades your local OpenCode, changes learner
+notes, enables learning mode, or uses an AI API key. Only GitHub's built-in scoped
+workflow token is needed.
+
+- Run the watcher manually: **Actions → Upstream watch → Run workflow**.
+- Read-only local preview: `node scripts/upstream-watch.js --dry-run`.
+- Pause alerts: **Actions → Upstream watch → … → Disable workflow**.
+- Pause dependency PRs: set `open-pull-requests-limit: 0` in `.github/dependabot.yml`.
+- After porting upstream changes, update the source revision in `NOTICE.md`.
+- After reviewing a new CLI release, update `.github/maintenance.json`.
+
+Schedules run from the default branch. GitHub can delay scheduled runs or disable
+them after prolonged repository inactivity; check the Actions page if checks stop.
+
 ## Attribution and license
 
 MIT. Adapted guides and note/reset semantics come from Noah Kim's VibeWise.

@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+      time: "03:47"
+      timezone: Etc/UTC
+    allow:
+      - dependency-name: "@opencode/plugin"
+    ignore:
+      - dependency-name: "@opencode/plugin"
+        update-types: ["version-update:semver-major"]
+    versioning-strategy: increase
+    open-pull-requests-limit: 3
+    assignees: [tun1r]

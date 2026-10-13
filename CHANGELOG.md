@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Daily upstream VibeWise/OpenCode V2 review alerts with duplicate suppression.
+- Daily Dependabot plugin-API update PRs, checked by CI and never auto-merged.
+- Documented manual checks, maintenance pause controls, and reviewed baselines.
+
 ## 0.1.0
 
 - Initial native OpenCode V2 adapter with `/vibe-wise:learn`, `/vibe-wise:pause`, and `/vibe-wise:reset`.

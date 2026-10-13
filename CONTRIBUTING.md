@@ -24,3 +24,14 @@ For a release, update package.json and package-lock.json together, document the
 version in CHANGELOG.md, and push a matching `v<version>` tag. The release workflow
 verifies the tag/version match and uploads the npm-format tarball to GitHub.
 Publishing to npm is a separate, explicit future decision.
+
+## Maintenance alerts
+
+The scheduled watcher reads the adopted upstream revision from NOTICE.md and the
+reviewed CLI version from `.github/maintenance.json`. Do not advance either just
+to silence an alert; review/port the changes and verify first. Closing an issue
+acknowledges its current tip without changing attribution. New tips reopen it.
+
+Dependabot updates only `@opencode/plugin`, preserving a pinned version. Review
+release notes and CI before merging. Perform an isolated CLI compatibility check
+when the API contract changes; passing dependency tests alone isn't a CLI test.
